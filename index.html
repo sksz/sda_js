@@ -17,7 +17,11 @@
             tablica = [1, 3, 6, 9];
             tablica2 = [1, 2, 3, 6];
 
-            console.log(tablica.concat(tablica2));
+            wynik = tablica.every(function(element, index){
+                return element <= 9;
+            });
+
+            console.log(wynik);
         </script>
     </body>
 </html>
