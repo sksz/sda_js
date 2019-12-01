@@ -12,41 +12,12 @@
             <button>Kaboom!</button>
         </header>
         <script>
-            var liczbaParzysta, trwaj, tablica, tablica2;
+            var tablica, tablica2;
 
-            liczbaParzysta = function (liczba) {
-                return liczba % 2 === 0;
-            }
+            tablica = [1, 3, 6, 9];
+            tablica2 = [1, 2, 3, 6];
 
-            trwaj = function (liczba) {
-                return liczba;
-            }
-
-            tablica = [];
-            tablica2 = {
-                'zero': 1,
-                'jeden': 2,
-                'dwa-nie': 3
-            };
-
-            tablica['test'] = 'aaa';
-            console.log(tablica);
-            // tablica2['dwa-tak'] = 5;
-
-            // tablica[10] = 'aaa';
-
-            // console.log(tablica );
-
-            // licznik = 10;
-
-            // while (trwaj(licznik)) {
-            //     licznik--;
-            //     console.log( licznik <= '3');
-            // }
-
-            // liczbaParzysta = liczba => liczba % 2 === 0;
-
-            // console.log(liczbaParzysta(2));
+            console.log(tablica.concat(tablica2));
         </script>
     </body>
 </html>
