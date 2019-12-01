@@ -12,37 +12,22 @@
             <button>Kaboom!</button>
         </header>
         <script>
-            var zmienWiek, osoba, osoba2;
 
-            osoba = {
-                imie: 'Jan',
-                wiek: 30,
-                zmienWiek: function (nowyWiek) {
-                    this.wiek = nowyWiek;
-                }
-            };
-
-            zmienWiek = function (nowyWiek, osobaDoZmianyWieku) {
-                var nowaOsoba;
-
-                nowaOsoba = {
-                    imie: osobaDoZmianyWieku.imie,
-                    wiek: osobaDoZmianyWieku.wiek + nowyWiek,
-                    zmienWiek: osobaDoZmianyWieku.zmienWiek
-                };
-
-                return nowaOsoba;
+            for(var i = 0; i < 10; i++) {
+                console.log('a');
+                setTimeout(function() {
+                    console.log(i);
+                }, 1000);
             }
 
-            osoba2 = zmienWiek(25, osoba);
-
-            console.log(osoba);
-            console.log(osoba2);
-
-            osoba2.zmienWiek(30);
-
-            console.log(osoba);
-            console.log(osoba2);
+            for(var i = 0; i < 10; i++) {
+                console.log('a');
+                (function (cos) {
+                    setTimeout(function() {
+                        console.log(cos);
+                    }, 1000);
+                }) (i)
+            }
         </script>
     </body>
 </html>
