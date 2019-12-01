@@ -18,11 +18,33 @@
             tablica2 = [1, 2, 3, 6];
 
             for (var index = 0; index < 4; index++) {
-                if (index < 2) {
-                    continue;
+                // if (index < 2) {
+                //     continue;
+                // }
+                switch (index) {
+                    case 0:
+                        continue;
+                    case 1:
+                        continue;
+                    default:
+                        break;
                 }
                 console.log(tablica[index]);
             }
+
+            index = 0;
+            switch (index) {
+                case 0:
+                    console.log('tak');
+                    // UWAGA NA brak 'break'!
+                    // break;
+                case 1:
+                    console.log('tak');
+                    break;
+                default:
+                    console.log('nie');
+            }
+
 
             // console.log(wynik);
         </script>
