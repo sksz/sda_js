@@ -12,22 +12,16 @@
             <button>Kaboom!</button>
         </header>
         <script>
+            var testObject;
 
-            for(var i = 0; i < 10; i++) {
-                console.log('a');
-                setTimeout(function() {
-                    console.log(i);
-                }, 1000);
-            }
+            testObject = {
+                wartosc1: 'test',
+                wartosc2: 'cos'
+            };
 
-            for(var i = 0; i < 10; i++) {
-                console.log('a');
-                (function (cos) {
-                    setTimeout(function() {
-                        console.log(cos);
-                    }, 1000);
-                }) (i)
-            }
+            delete testObject.wartosc1;
+
+            console.log(testObject);
         </script>
     </body>
 </html>
