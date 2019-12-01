@@ -17,11 +17,18 @@
             tablica = [1, 3, 6, 9];
             tablica2 = [1, 2, 3, 6];
 
-            wynik = tablica.every(function(element, index){
-                return element <= 9;
+            for (index = 0; index < 1; index++) {
+                console.log(tablica[index]);
+                break;
+            }
+
+            tablica.forEach(function (value, index, array) {
+                console.log(tablica[index]);
+                // Break w funkcji jest błędem :)
+                // break;
             });
 
-            console.log(wynik);
+            // console.log(wynik);
         </script>
     </body>
 </html>
