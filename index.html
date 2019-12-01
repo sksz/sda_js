@@ -12,41 +12,37 @@
             <button>Kaboom!</button>
         </header>
         <script>
-            var tablica, tablica2;
+            var zmienWiek, osoba, osoba2;
 
-            tablica = [1, 3, 6, 9];
-            tablica2 = [1, 2, 3, 6];
-
-            for (var index = 0; index < 4; index++) {
-                // if (index < 2) {
-                //     continue;
-                // }
-                switch (index) {
-                    case 0:
-                        continue;
-                    case 1:
-                        continue;
-                    default:
-                        break;
+            osoba = {
+                imie: 'Jan',
+                wiek: 30,
+                zmienWiek: function (nowyWiek) {
+                    this.wiek = nowyWiek;
                 }
-                console.log(tablica[index]);
+            };
+
+            zmienWiek = function (nowyWiek, osobaDoZmianyWieku) {
+                var nowaOsoba;
+
+                nowaOsoba = {
+                    imie: osobaDoZmianyWieku.imie,
+                    wiek: osobaDoZmianyWieku.wiek + nowyWiek,
+                    zmienWiek: osobaDoZmianyWieku.zmienWiek
+                };
+
+                return nowaOsoba;
             }
 
-            index = 0;
-            switch (index) {
-                case 0:
-                    console.log('tak');
-                    // UWAGA NA brak 'break'!
-                    // break;
-                case 1:
-                    console.log('tak');
-                    break;
-                default:
-                    console.log('nie');
-            }
+            osoba2 = zmienWiek(25, osoba);
 
+            console.log(osoba);
+            console.log(osoba2);
 
-            // console.log(wynik);
+            osoba2.zmienWiek(30);
+
+            console.log(osoba);
+            console.log(osoba2);
         </script>
     </body>
 </html>
