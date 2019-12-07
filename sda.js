@@ -11,7 +11,7 @@ myObject2 = {
     year: 1969
 };
 
-// Constructor
+//Constructor
 function MyObject3(producer, model, year) {
     this.producer = producer;
     this.model = model;
