@@ -1,28 +1,29 @@
-var instance, MyObject;
+var Person, test, Teacher;
 
-//Constructor
-MyObject = {
-    producer: '',
-    model: '',
-    year: '',
-    mySpeed: 0,
+test = 'aaa';
 
-    get speed () {return this.mySpeed},
-
-    set speed (newSpeed) {
-        if (typeof newSpeed !== 'number') {
-            throw ('Musisz podać liczbę');
-        }
-
-        this.mySpeed = newSpeed;        
-    },
-
-    get PI () {
-        return 3.1415;
-    }
+function Person(first, last, age, eyecolor) {
+    this.firstName = first;
+    this.lastName = last;
+    this.age = age;
+    this.eyeColor = eyecolor;
 }
 
-MyObject.speed = 2;
-console.log(MyObject);
-console.log(MyObject.speed);
+Person.prototype.nationality = `English ${test}`;
+var instance = new Person('Ala', 'Nijaka', 12, 'black');
 
+console.log(instance);
+console.log(instance.nationality);
+
+function Teacher(first, last, age, eyeColor, interests) {
+    Person.call(this, first, last, age, eyeColor);
+
+    this.interests = interests;
+}
+
+Teacher.prototype = Person.prototype;
+
+var teach = new Teacher('Jan', 'Kowalski', 920, 'white', 'vodka');
+
+console.log(teach);
+console.log(teach.nationality);
