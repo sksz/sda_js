@@ -1,10 +1,21 @@
 var haystack, needle;
 
-haystack = 'Ala na kota z wasami, kot lubi Alę.';
+haystack = 'Ala na kota z wasami, kot lubi Alę. Czy Ala i Kot to istoty?';
 needle = 'kot';
 
-document.getElementById('button1').innerHTML = haystack.includes(needle);
+function szukamKota() {
+    var pozycjaKota, koty;
+    pozycjaKota = 0;
+    koty = [];
 
-document.getElementById('button1').innerHTML += ' -first- ' + haystack.indexOf(needle);
+    while (pozycjaKota !== -1) {
+        pozycjaKota = haystack.indexOf(needle, pozycjaKota + 1);
+        if (pozycjaKota >= 0) {
+            koty.push(pozycjaKota);
+        }
+    }
 
-document.getElementById('button1').innerHTML += ' -last- ' + haystack.lastIndexOf(needle);
+    return koty;
+}
+
+document.getElementById('button1').innerHTML = szukamKota();
