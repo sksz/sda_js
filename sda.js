@@ -7,17 +7,16 @@ myObject.producer = 'Ford';
 myObject.model = 'Mustang';
 myObject['year'] = 1969;
 
-function showProperities(testedObject) {
-    var result = [];
-
-    for (var propertyName in testedObject) {
-        if (testedObject.hasOwnProperty(propertyName)) {
-            result.push(propertyName);
-        }
+function power(base, index) {
+    if (index < 0) {
+        return;
+    }
+    
+    if (!index) {
+        return 1;
     }
 
-    return result;
+    return base * power(base, index - 1);
 }
 
-console.log(showProperities(myObject));
-
+console.log(power(2, 3));
