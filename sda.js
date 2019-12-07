@@ -1,7 +1,23 @@
-var liczba, liczba2;
+var myObject, zmienna;
 
-liczba = 1.123456789;
+zmienna = 'year';
 
-liczba2 = liczba.toString(3);
+myObject = new Object();
+myObject.producer = 'Ford';
+myObject.model = 'Mustang';
+myObject['year'] = 1969;
 
-console.log(liczba2);
+function showProperities(testedObject) {
+    var result = [];
+
+    for (var propertyName in testedObject) {
+        if (testedObject.hasOwnProperty(propertyName)) {
+            result.push(propertyName);
+        }
+    }
+
+    return result;
+}
+
+console.log(showProperities(myObject));
+
