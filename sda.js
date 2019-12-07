@@ -7,17 +7,22 @@ MyObject = {
     year: '',
     mySpeed: 0,
 
-    get speed () {
-        return this.mySpeed + 1;
-    },
+    get speed () {return this.mySpeed},
 
     set speed (newSpeed) {
-        this.mySpeed = newSpeed;
+        if (typeof newSpeed !== 'number') {
+            throw ('Musisz podać liczbę');
+        }
+
+        this.mySpeed = newSpeed;        
+    },
+
+    get PI () {
+        return 3.1415;
     }
 }
 
 MyObject.speed = 2;
 console.log(MyObject);
 console.log(MyObject.speed);
-MyObject.mySpeed = 1;
-console.log(MyObject.speed);
+
