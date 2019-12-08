@@ -29,6 +29,12 @@ init = function() {
 
     book = [
         {
+            isdn: '123123-qdsdsad-321321',
+            title: 'Dune',
+            authors: 'Frank Herbert',
+            publishYear: 1981,
+            publisher: 'Ja :)'
+        },{
             isdn: '123123-qdsdsad-123123',
             title: 'ANSI C',
             authors: 'Kerrigan, Ritche',
@@ -47,5 +53,20 @@ init = function() {
         }
     ];
 
-    
+    for (var i = 0; i < lend.length; i++) {
+        for (var j = 0; j < book.length; j++) {
+            if (lend[i].book === book[j].isdn) {
+                lend[i].book = book[j];
+                break;
+            }
+        }
+        for (var k = 0; k < user.length; k++) {
+            if (lend[i].user === user[k].id) {
+                lend[i].user = user[k];
+                break;
+            }
+        }
+    }
+
+    console.log(lend);
 }
