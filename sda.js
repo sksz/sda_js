@@ -22,6 +22,7 @@ init = function() {
 
     }
     document.getElementById('button1').setAttribute('style', 'color: red');
+    console.log(document.getElementById('button1').getAttribute('style'));
 
     // Kursor nad elementem
     document.getElementById('test0').onmouseover = function () {
