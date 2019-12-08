@@ -22,7 +22,7 @@ init = function() {
         }
 
         push(hashNode) {
-            if (typeof this.getHash(hashNode.key) === 'undefined') {
+            if (typeof this.getHash(hashNode.key) !== 'undefined') {
                 return;
             }
 
@@ -30,20 +30,29 @@ init = function() {
         }
 
         pop() {
-            return this.cells.pop();
+            if (this.cells.length === 0) {
+                return;
+            }
+
+            let element = this.cells[0];
+            let tempArray = new Array(this.cells.length - 1);
+
+            for (var i = 1; i < this.cells.length; i++) {
+                tempArray[i - 1] = this.cells[i];
+            }
+
+            this.cells = tempArray;
+            return element;
         }
     }
 
     var tablica = new HashTable();
 
-    tablica.push(new HashNode('key3', null));
     tablica.push(new HashNode('key1', 'value1'));
-    tablica.push(new HashNode('key2', 'value1'));
-    tablica.push(new HashNode('key1', 'value1'));
+    tablica.push(new HashNode('key2', 'value2'));
+    tablica.push(new HashNode('key1', 'value3'));
 
-    if (null) {
-        console.log('test');
-    }
+    console.log(tablica.pop());
 
     console.log(tablica);
 }
