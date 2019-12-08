@@ -1,72 +1,49 @@
 var init;
 
 init = function() {
-    var user, book, lend;
-
-    user = [
-        {
-            id: 1,
-            login: 'jan.kowalski',
-            password: '******',
-            email: 'jan.kowalski@nijaka.pl',
-            avatar: 'jan.kowalski.jpg',
-            roles: [
-                {
-                    accountRole: 'administrator'
-                }, {
-                    accountRole: 'user'
-                }
-            ],
-            personalData: {
-                firstName: 'Jan',
-                lastName: 'Nijaki',
-                birthDate: '01.01.-20',
-                gender: 'M',
-                phoneNumber: '+48914112233'
-            }
-        }
-    ];
-
-    book = [
-        {
-            isdn: '123123-qdsdsad-321321',
-            title: 'Dune',
-            authors: 'Frank Herbert',
-            publishYear: 1981,
-            publisher: 'Ja :)'
-        },{
-            isdn: '123123-qdsdsad-123123',
-            title: 'ANSI C',
-            authors: 'Kerrigan, Ritche',
-            publishYear: 1981,
-            publisher: 'Ja :)'
-        }
-    ];
-
-    lend = [
-        {
-            lendDate: '07-12-2019',
-            lendTo: '07-01-2020',
-            book: '123123-qdsdsad-123123',
-            user: 1,
-            deleted: false
-        }
-    ];
-
-    for (var i = 0; i < lend.length; i++) {
-        for (var j = 0; j < book.length; j++) {
-            if (lend[i].book === book[j].isdn) {
-                lend[i].book = book[j];
-                break;
-            }
-        }
-        for (var k = 0; k < user.length; k++) {
-            if (lend[i].user === user[k].id) {
-                lend[i].user = user[k];
-                break;
-            }
+    class HashNode {
+        constructor(key, value) {
+            this.key = key;
+            this.value = value;
         }
     }
 
-    console.log(lend);
+    class HashTable {
+        constructor() {
+            this.cells = new Array(0);
+        }
+
+        getHash(key) {
+            for (let i = 0; i < this.cells.length; i++) {
+                if (this.cells[i].key === key) {
+                    return this.cells[i].value;
+                }
+            }
+        }
+
+        push(hashNode) {
+            if (typeof this.getHash(hashNode.key) === 'undefined') {
+                return;
+            }
+
+            this.cells.push(hashNode);
+        }
+
+        pop() {
+            return this.cells.pop();
+        }
+    }
+
+    var tablica = new HashTable();
+
+    tablica.push(new HashNode('key3', null));
+    tablica.push(new HashNode('key1', 'value1'));
+    tablica.push(new HashNode('key2', 'value1'));
+    tablica.push(new HashNode('key1', 'value1'));
+
+    if (null) {
+        console.log('test');
+    }
+
+    console.log(tablica);
 }
