@@ -1,6 +1,6 @@
 class Stack {
     constructor(...items) {
-        this.reverse = false;
+        this.reverse = true;
         this.stack = [...items];
     }
 
@@ -11,7 +11,7 @@ class Stack {
     }
 
     pop() {
-        return this.reverse ? this.stack.shift() : this.stack.pop();
+        return this.reverse ? this.stack.pop() : this.stack.shift();
     }
 }
 

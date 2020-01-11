@@ -31,6 +31,6 @@ class LinkedList {
 
 var list = new LinkedList();
 
-list.add(1).add(2);
+list.add(1).add(2).add(Math);
 
 console.log(list);
