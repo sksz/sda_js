@@ -1,36 +1,73 @@
-
-class LinkedListNode {
-    constructor(value, next = null, previous = null) {
+class BinaryTreeNode {
+    constructor(value, parent = null, left = null, right = null) {
       this.value = value;
-      this.next = next;
+      this.left = left;
+      this.right = right;
+      this.parent = parent;
     }
 }
 
-class LinkedList {
+class BinaryTree {
     constructor () {
-        this.head = null;
+        this.root = null;
     }
 
-    add (value) {
-        var newNode = new LinkedListNode(value);
+    add (value, parent = null) {
+        if (parent === null && this.root !== null) {
+            throw 'Root Node już istnieje';
+        }
 
-        if (!this.head) {
-            this.head = newNode;
+        if (parent === null) {
+            this.root = new BinaryTreeNode(value);
             return this;
         }
 
-        var element = this.head;
-        while(element.next) {
-            element = element.next;
+        if (!parent.left) {
+            parent.left = new BinaryTreeNode(value, parent);
+            return this;
         }
-        element.next = newNode;
 
-        return this;
+        if (!parent.right) {
+            parent.right = new BinaryTreeNode(value, parent);
+            return this;
+        }
+
+        throw 'Nie mogę dopisać';
+    }
+
+    find (value, root = null) {
+        var left, right = null;
+        if (root === null && this.root.value === value) {
+            return this.root;
+        } else if (root !== null && root.value === value) {
+            return root;
+        } else if (root === null) {
+            left = this.root.left;
+            right = this.root.right;
+        } else {
+            left = root.left;
+            right = root.right;
+        }
+
+        left = this.find(value, left);
+        if (left) {
+            return left;
+        }
+
+        right = this.find(value, right);
+        if (right) {
+            return right;
+        }
     }
 }
 
-var list = new LinkedList();
+var tree = new BinaryTree();
 
-list.add(1).add(2).add(Math);
+tree.add('a');
+var root = tree.find('a');
+tree.add('b', root).add('c', root);
 
-console.log(list);
+var child = tree.find('b');
+tree.add('d', child).add('e', child);
+
+console.log(tree);
