@@ -2,9 +2,9 @@
 // Wykonaj zadanie pamiętając o dobrych praktykach pokazanych dotychczas.
 
 (function() {
-  $("li")
+  $("li") // pobieram wszystkie elementy LI znajdujące się aktualnie na stronie
     .filter(function() {
-      return $(this).text() === "9";
+      return $(this).text() === "9";  // odfiltrowywuje tylko te których wartość tekstowa jest równa 9
     })
-    .addClass("dark-theme");
+    .addClass("dark-theme");  // do odfiltrowanych elementów dodaje klasę CSS
 })();
