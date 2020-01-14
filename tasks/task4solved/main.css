@@ -1,0 +1,16 @@
+.squares-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.square {
+  width: 49vw;
+  height: 50vh;
+  display: inline-flex;
+  background-color: green;
+  transition: all .3s ease-in;
+}
+
+.dark-bg {
+  background-color: black;
+}
