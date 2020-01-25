@@ -1,18 +1,46 @@
 class Dog {
-    constructor(name, color, age) {
-        this.name = name;
-        this.color = color;
-        this.age = age;
-    }
+  constructor(name, color, age) {
+    this.name = name;
+    this.color = color;
+    this.age = age;
+  }
 
-    bark() {
-        console.log('bark');
+  bark() {
+    console.log("bark");
+  }
+
+  static checkDogsHealth(dog) {
+    const dogHealthy = false;
+
+    if (dogHealthy) {
+      console.log('Your dog is healthy');
+    } else {
+      console.log(' Your dog is ill!');
     }
+  }
 }
 
-const pies1 = new Dog('Reksio', 'rudy', 34);
-const pies2 = new Dog('Wacek', 'rudy', 34);
-const pies3 = new Dog('Rdu', 'rudy', 34);
-const pies4 = new Dog('Reksio', 'rudy', 34);
+// Odpowiednik w ES5:
+// function Dog(name, color, age) {
+//   this.name = name;
+//   this.color = color;
+//   this.age = age;
+// }
 
+// Dog.prototype.bark = function() {
+//   console.log("bark");
+// }
+
+// Dog.checkDogsHealth(dog) {
+//   const dogHealthy = false;
+
+//   if (dogHealthy) {
+//     console.log('Your dog is healthy');
+//   } else {
+//     console.log(' Your dog is ill!');
+//   }
+// }
+
+const pies1 = new Dog("Reksio", "rudy", 34);
 console.log(pies1);
+Dog.checkDogsHealth(pies1);

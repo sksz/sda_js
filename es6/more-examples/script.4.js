@@ -7,17 +7,13 @@ Animal.prototype.speak = function () {
 }
 
 class Dog extends Animal {
-    constructor(props) {
-      super(props);
+    constructor(name) {
+      super(name);
     }
 
-    // speak() {
-    //     super.speak();
-    //     console.log(this.name + ' barks.');
-    // }
-
-    miau() {
-      console.log('miauuu')
+    speak() {
+        super.speak();
+        console.log(this.name + ' barks.');
     }
 }
 
