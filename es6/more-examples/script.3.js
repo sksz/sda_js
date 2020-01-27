@@ -9,8 +9,8 @@ class Animal {
 }
 
 class Dog extends Animal { // odpowiednik Dog.prototype = Object.create(Animal.prototype)
-    constructor(name, age) {
-        super(name) // odpowiednik Animal.call(this, name) //Animal( )
+    constructor() {
+        super() // odpowiednik Animal.call(this, name) //Animal( )
         this.age = age;
     }
 
@@ -20,6 +20,18 @@ class Dog extends Animal { // odpowiednik Dog.prototype = Object.create(Animal.p
     }
 }
 
+class Cat extends Animal { // odpowiednik Dog.prototype = Object.create(Animal.prototype)
+    constructor(name, age) {
+        super(name) // odpowiednik Animal.call(this, name) //Animal( )
+        this.age = age;
+    }
+
+    speak() {
+        super.speak(); // odpowiednik Animal.speak.call(this, name)
+        console.log(this.name + ' miau.');
+    }
+}
+
 var d = new Dog('Mitzie', 4);
 d.speak();
-console.log(d instanceof Dog, d instanceof Animal)
+console.log(d)

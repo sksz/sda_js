@@ -1,12 +1,47 @@
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
     <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>Page Title</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-</head>
-<body>
-    <script src="script.js"></script>
-</body>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.js"
+      integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+      crossorigin="anonymous"
+      defer
+    ></script>
+    <script src="script.js" defer></script>
+
+    <style>
+      label {
+        display: inline-block;
+        width: 30%;
+      }
+    </style>
+  </head>
+
+  <body>
+    <ul class="products-list"></ul>
+
+    <form id="productForm">
+      <div>
+        <label for="productType">Typ produktu</label>
+        <input type="text" id="productType" name="productType" />
+      </div>
+      <div>
+        <label for="productName">Nazwa produktu</label>
+        <input type="text" id="productName" name="productName" />
+      </div>
+      <div>
+        <label for="productPrice">Cena produktu</label>
+        <input type="text" id="productPrice" name="productPrice" />
+      </div>
+      <div>
+        <label for="productFunctionality">Funkcjonalność produktu</label>
+        <input type="text" id="productFunctionality" name="productFunctionality" />
+      </div>
+      <button type="submit" id="productFormSubmitBtn">Dodaj produkt</button>
+    </form>
+  </body>
 </html>

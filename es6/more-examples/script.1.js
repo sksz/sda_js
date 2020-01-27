@@ -19,7 +19,7 @@ class Prostokat3 {
         this.wysokosc = wysokosc;
         this.szerokosc = szerokosc;
     }
-}
+};
 
 const prostokat1 = new Prostokat1(3, 4);
 const prostokat2 = new Prostokat2(3, 4);

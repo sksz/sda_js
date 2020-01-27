@@ -18,7 +18,7 @@ class Dog extends Animal {
 }
 
 Dog.prototype.miau = function(){
-  console.log('hauuu')
+  console.log('miauu')
 }
 
 var d = new Dog('Mitzie');
