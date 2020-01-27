@@ -1,30 +1,38 @@
+class ProductForm {
+  constructor() {
+    this.formNode = $('#productForm');
+    this.formBtnNode = $('#productFormSubmitBtn');
+
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.formBtnNode.on('click', this.handleSubmit)
+  }
+
+  handleSubmit(event) {
+    event.preventDefault();
+    const formData = this.formNode.serializeArray();
+    console.log(formData);
+  }
+}
+
 class ShopCart {
   constructor() {
     this.products = [];
-    this.productsListNode = $('<ul class="shop-cart"></ul>');
-    this.render();
   }
 
   addItemToCart(product) {
     this.products.push(product);
-    product.render(this.productsListNode);
+    const newProductNode = product.createProductNode();
+    $(".products-list").append(newProductNode);
   }
 
   removeItemFromCart(index) {
-    const removedProducts = this.products.splice(index, 1);
-    if (removedProducts[0]) {
-      removedProducts[0].remove();
-    }
+    this.products.splice(index, 1);
   }
 
   checkProducts() {
     this.products.forEach(product => {
       product.checkMyfunctionality();
     });
-  }
-
-  render() {
-    this.productsListNode.appendTo(document.body);
   }
 }
 
@@ -33,30 +41,22 @@ class Product {
     this.type = type;
     this.name = name;
     this.price = price;
-    this.productNode = $(`
-      <li class="product">
+  }
+
+  createProductNode() {
+    return $(`
+      <li>
         <h4>${this.name}</h4>
         <h5>${this.type}</h5>
         <p>${this.price} PLN</p>
       </li>
     `);
   }
-
-  render(parent) {
-    if (parent) {
-      this.productNode.appendTo(parent);
-    }
-  }
-
-  remove() {
-    this.productNode.remove();
-  }
 }
 
 class Toy extends Product {
   constructor(type, name, price, sound) {
     super(type, name, price);
-
     this.sound = sound;
   }
 
@@ -72,7 +72,6 @@ class Toy extends Product {
 class Phone extends Product {
   constructor(type, name, price, ringtone) {
     super(type, name, price);
-
     this.ringtone = ringtone;
   }
 
@@ -96,3 +95,7 @@ newShopCart.addItemToCart(one);
 newShopCart.addItemToCart(two);
 newShopCart.addItemToCart(three);
 newShopCart.addItemToCart(four);
+
+newShopCart.checkProducts();
+
+const productForm = new ProductForm();
