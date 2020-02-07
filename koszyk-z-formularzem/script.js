@@ -1,39 +1,54 @@
 class ProductForm {
-  constructor() {
+  constructor(shopCart) {
+    this.shopCart = shopCart;
     this.formNode = $('#productForm');
     this.formBtnNode = $('#productFormSubmitBtn');
 
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.formBtnNode.on('click', this.handleSubmit)
+    this.formBtnNode.on('click', this.handleSubmit);
   }
 
   handleSubmit(event) {
     event.preventDefault();
     const formData = this.formNode.serializeArray();
-    console.log(formData);
+    const newProductData = {};
+
+    formData.forEach(input => {
+      newProductData[input.name] = input.value;
+    });
+
+    const { type, name, price } = newProductData;
+    const newProduct = new Product(type, name, price);
+
+    this.shopCart.addItemToCart(newProduct);
+    $('input').val("");
   }
 }
 
 class ShopCart {
   constructor() {
     this.products = [];
+    this.productsNode = $(".products-list");
+
+    this.removeItemFromCart = this.removeItemFromCart.bind(this);
+    this.productsNode.on('click', 'button', this.removeItemFromCart);
   }
 
   addItemToCart(product) {
     this.products.push(product);
     const newProductNode = product.createProductNode();
-    $(".products-list").append(newProductNode);
+    this.productsNode.append(newProductNode);
   }
 
-  removeItemFromCart(index) {
-    this.products.splice(index, 1);
-  }
+  removeItemFromCart(event) {
+    const productId = $(event.target).data("productId");
+    const productIndex = this.products.findIndex(product =>  product.id === productId);
 
-  checkProducts() {
-    this.products.forEach(product => {
-      product.checkMyfunctionality();
-    });
+    if (productIndex > -1) {
+      this.products[productIndex].remove();
+      this.products.splice(productIndex, 1);
   }
+}
 }
 
 class Product {
@@ -41,61 +56,38 @@ class Product {
     this.type = type;
     this.name = name;
     this.price = price;
+    this.id = Math.random() * Math.random() * 10000;
   }
 
   createProductNode() {
-    return $(`
+    this.productNode = $(`
       <li>
         <h4>${this.name}</h4>
         <h5>${this.type}</h5>
         <p>${this.price} PLN</p>
+        <button data-product-id=${this.id}>Remove product</button>
       </li>
     `);
-  }
-}
 
-class Toy extends Product {
-  constructor(type, name, price, sound) {
-    super(type, name, price);
-    this.sound = sound;
+    return this.productNode;
   }
 
-  makeSound() {
-    console.log(this.sound);
+  remove() {
+    this.productNode.remove();
+  }
   }
 
-  checkMyfunctionality() {
-    this.makeSound();
-  }
-}
 
-class Phone extends Product {
-  constructor(type, name, price, ringtone) {
-    super(type, name, price);
-    this.ringtone = ringtone;
-  }
-
-  makeCall() {
-    console.log(this.ringtone);
-  }
-
-  checkMyfunctionality() {
-    this.makeCall();
-  }
-}
+const one = new Product("Toy", "LEGO", 90);
+const two = new Product("Toy", "TALISMAN", 120);
+const three = new Product("Phone", "IPHONE", 2000);
+const four = new Product("Phone", "NOKIA", 300);
 
 const newShopCart = new ShopCart();
-
-const one = new Toy("Toy", "LEGO", 90, "yeah");
-const two = new Toy("Toy", "TALISMAN", 120, "heeh");
-const three = new Phone("Phone", "IPHONE", 2000, "bleah");
-const four = new Phone("Phone", "NOKIA", 300, "buuuz");
 
 newShopCart.addItemToCart(one);
 newShopCart.addItemToCart(two);
 newShopCart.addItemToCart(three);
 newShopCart.addItemToCart(four);
 
-newShopCart.checkProducts();
-
-const productForm = new ProductForm();
+const productForm = new ProductForm(newShopCart);
