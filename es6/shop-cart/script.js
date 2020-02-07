@@ -1,19 +1,18 @@
 class ShopCart {
   constructor() {
     this.products = [];
-    this.productsListNode = $('<ul class="shop-cart"></ul>');
-    this.render();
+    this.productsListNode = $('.products-list'); // pobieramy <ul> w celu łatwego dostępu przy dodawaniu produktów do HTML-a
   }
 
   addItemToCart(product) {
     this.products.push(product);
-    product.render(this.productsListNode);
+    product.render(this.productsListNode); // uruchamiamy metodę render() nowego produktu, przekazując jej element this.productsListNode. Dzięki temu produkt sam dołączy się do HTML-a za pomocą metody jQuery appendTo()
   }
 
   removeItemFromCart(index) {
-    const removedProducts = this.products.splice(index, 1);
-    if (removedProducts[0]) {
-      removedProducts[0].remove();
+    const removedProducts = this.products.splice(index, 1); // splice() oprócz usuwania, zwraca tablicę usuniętych elementów z this.products
+    if (removedProducts.length >= 0) { // sprawdzamy czy tablica nie jest pusta
+      removedProducts[0].remove(); // uruchamiamy metodę remove() naszego produktu aby usunąć element z HTML-a
     }
   }
 
@@ -22,10 +21,6 @@ class ShopCart {
       product.checkMyfunctionality();
     });
   }
-
-  render() {
-    this.productsListNode.appendTo(document.body);
-  }
 }
 
 class Product {
@@ -33,6 +28,7 @@ class Product {
     this.type = type;
     this.name = name;
     this.price = price;
+    // przechowujemy nasz element LI w polu this.productNode aby mieć do niego łatwy dostęp w trakcie usuwania/dodwania z HTML-a
     this.productNode = $(`
       <li class="product">
         <h4>${this.name}</h4>
@@ -42,14 +38,14 @@ class Product {
     `);
   }
 
-  render(parent) {
+  render(parent) { // @parent: selektor css
     if (parent) {
-      this.productNode.appendTo(parent);
+      this.productNode.appendTo(parent); // nasz element LI dołacza się do elementu HTML przekazanego jako parametr metody render()
     }
   }
 
   remove() {
-    this.productNode.remove();
+    this.productNode.remove(); // nasz element LI usuwa się z HTML
   }
 }
 
@@ -96,3 +92,6 @@ newShopCart.addItemToCart(one);
 newShopCart.addItemToCart(two);
 newShopCart.addItemToCart(three);
 newShopCart.addItemToCart(four);
+
+newShopCart.checkProducts();
+newShopCart.removeItemFromCart(1);
