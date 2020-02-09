@@ -7,3 +7,5 @@ printf('test printf%s', "\n");
 
 $test = sprintf('test sprintf%s', "\n");
 echo $test;
+
+var_dump($test);
