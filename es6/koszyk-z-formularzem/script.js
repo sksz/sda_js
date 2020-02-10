@@ -1,5 +1,6 @@
 class ProductForm {
-  constructor() {
+  constructor(shopCart) {
+    this.shopCart = shopCart;
     this.formNode = $('#productForm');
     this.formBtnNode = $('#productFormSubmitBtn');
 
@@ -10,7 +11,15 @@ class ProductForm {
   handleSubmit(event) {
     event.preventDefault();
     const formData = this.formNode.serializeArray();
-    console.log(formData);
+
+    const newProductData = formData.reduce((accumulator, currentInput) => {
+      accumulator[currentInput.name] = accumulator.value;
+    }, {});
+
+    const { type, name, price } = newProductData;
+    const newProduct = new Product(type, name, price);
+    this.shopCart.addItemToCart(newProduct);
+    $('input').val("");
   }
 }
 
@@ -18,6 +27,9 @@ class ShopCart {
   constructor() {
     this.products = [];
     this.productsNode = $(".products-list");
+
+    this.removeItemFromCart = this.removeItemFromCart.bind(this);
+    this.productsNode.on("click", "button", this.removeItemFromCart)
   }
 
   addItemToCart(product) {
@@ -26,8 +38,14 @@ class ShopCart {
     this.productsNode.append(newProductNode);
   }
 
-  removeItemFromCart() {
-    
+  removeItemFromCart(event) {
+    const productId = $(event.target).data("productId");
+    const productIndex = this.products.findIndex(product => product.id === productId)
+
+    if (productIndex > -1) {
+      this.products[productIndex].remove();
+      this.products.splice(productIndex, 1);
+    }
   }
 }
 
@@ -36,6 +54,7 @@ class Product {
     this.type = type;
     this.name = name;
     this.price = price;
+    this.id = Date.now() + Math.random();
   }
 
   createProductNode() {
@@ -44,10 +63,15 @@ class Product {
         <h4>${this.name}</h4>
         <h5>${this.type}</h5>
         <p>${this.price} PLN</p>
+        <button data-product-id=${this.id}>Usuń produkt</button>
       </li>
     `);
 
     return this.productNode;
+  }
+
+  remove() {
+    this.productNode.remove();
   }
 }
 
@@ -64,4 +88,4 @@ newShopCart.addItemToCart(two);
 newShopCart.addItemToCart(three);
 newShopCart.addItemToCart(four);
 
-const productForm = new ProductForm();
+const productForm = new ProductForm(newShopCart);
