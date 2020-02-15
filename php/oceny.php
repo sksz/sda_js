@@ -36,7 +36,7 @@ echo
         $tablicaNastek[$dziesietneIJednosci - 11] . ' ' :
         ($dziesietneIJednosci < 11 ?
             $tablicaJednosci[$dziesietneIJednosci - 1] :
-            $tablicaDziesiatek[$dziesiatki - 2] . ' ' . ($jednosci ? $tablicaJednosci[$jednosci - 1] : ''))) .
+            $tablicaDziesiatek[$dziesiatki - 2] . ' ' . ($jednosci ? $tablicaJednosci[$jednosci - 1] : ''))) . ' PLN' .
     PHP_EOL;
 
 
