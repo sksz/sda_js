@@ -6,6 +6,13 @@ class Customer
     protected $age;
     private $lastName;
 
+    public static $type = 'customer';
+
+    public static function getType(): string
+    {
+        return static::$type;
+    }
+
     public function getLastName(): string
     {
         return $this->lastName;
