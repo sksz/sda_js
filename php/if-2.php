@@ -13,7 +13,6 @@ if ($userRole == 2) {
     echo 'admin';
     echo 'moderator';
     echo 'user';
-
 } elseif ($userRole == 1) {
     echo 'moderator';
     echo 'user';
