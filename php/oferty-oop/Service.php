@@ -26,7 +26,7 @@ class Service extends Offer
         return $this;
     }
 
-    public function sayGoodbye()
+    public function sayGoodbye(string $tekst = ''): string
     {
         return 'Good bye';
     }

@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-require_once 'Service.php';
+require_once 'GoodByeInterface.php';
 
-abstract class Offer
+abstract class Offer implements GoodByeInterface
 {
     private $name;
     private $type;
@@ -48,8 +48,6 @@ abstract class Offer
 
         return $this;
     }
-
-    abstract public function sayGoodbye();
 }
 
 
