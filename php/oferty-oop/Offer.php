@@ -2,8 +2,6 @@
 
 declare(strict_types=1);
 
-require_once 'GoodByeInterface.php';
-
 abstract class Offer implements GoodByeInterface
 {
     private $name;
@@ -17,7 +15,7 @@ abstract class Offer implements GoodByeInterface
 
     public function __destruct()
     {
-        echo $this->sayGoodbye() . PHP_EOL;
+        echo $this->sayGoodbye($this->type) . PHP_EOL;
     }
 
     public function __invoke(int $testArgument)
