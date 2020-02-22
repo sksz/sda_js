@@ -6,9 +6,9 @@ require_once 'JanuszeKodu.php';
 require_once 'Nulle.php';
 require_once 'Mariany.php';
 
-$kursHtml = new JanuszeKodu('Kurs HTML', 'Szczecin', 7);
-$kursPhp = new JanuszeKodu('Kurs PHP', 'Szczecin', 150);
-$kursMysql = new JanuszeKodu('Kurs MySQL', 'Berlin', 40);
+$kursHtml = new JanuszeKodu('Kurs HTML', 'Szczecin', 7, 'Eustachy');
+$kursPhp = new JanuszeKodu('Kurs PHP', 'Szczecin', 150, 'Marian');
+$kursMysql = new JanuszeKodu('Kurs MySQL', 'Berlin', 40, 'Jan');
 
 var_dump($kursHtml, $kursMysql, $kursPhp);
 
