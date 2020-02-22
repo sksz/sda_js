@@ -2,7 +2,9 @@
 
 declare(strict_types=1);
 
-class Offer
+require_once 'Service.php';
+
+abstract class Offer
 {
     private $name;
     private $type;
@@ -15,7 +17,7 @@ class Offer
 
     public function __destruct()
     {
-        echo 'bye' . PHP_EOL;
+        echo $this->sayGoodbye() . PHP_EOL;
     }
 
     public function __invoke(int $testArgument)
@@ -46,6 +48,8 @@ class Offer
 
         return $this;
     }
+
+    abstract public function sayGoodbye();
 }
 
 
