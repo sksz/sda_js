@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 require_once 'Customer.php';
 
-class ChaoticConsumer extends Customer
+class GentleCustomer extends Customer
 {
     public function getData()
     {
@@ -13,16 +13,16 @@ class ChaoticConsumer extends Customer
 
     public function getDiscount(): int
     {
-        return 5;
+        return 10;
     }
 
     public function askForDiscount(): void
     {
-        echo 'Jam jest ' .
+        echo 'Nazywam się ' .
             $this->name .
             ' ' .
             $this->getLastName() .
-        ' i mam żólty krawat. Dostanę zniżkę?', PHP_EOL;
+        ' i uprzejmie proszę o zniżkę?', PHP_EOL;
     }
 }
 

@@ -1,25 +1,24 @@
 <?php
 
+declare(strict_types=1);
+
+require_once 'Customer.php';
 require_once 'ChaoticConsumer.php';
+require_once 'GentleCustomer.php';
 
 $customer = new Customer();
 $customer2 = new ChaoticConsumer();
-
-// var_dump(get_class($customer));
-// var_dump(get_class($customer2));
+$customer3 = new GentleCustomer();
 
 $customer->name = 'Kasia';
 $customer2->name = 'Jan';
-$customer2->setLastName('asd')->setAge(10);
+$customer3->name = 'Maciej';
+$customer->setLastName('Janowska')->setAge(2003);
+$customer2->setLastName('Kowalski')->setAge(10);
+$customer3->setLastName('Nuwocki')->setAge(44);
 
-echo $customer->name;
-
-echo $customer2->getData();
-
-// var_dump(get_class_methods('Customer'));
-// var_dump(get_class_methods($customer));
-
-// var_dump($customer);
-// var_dump($customer2)
+$customer->askForDiscount();
+$customer2->askForDiscount();
+$customer3->askForDiscount();
 
 ?>

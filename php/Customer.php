@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 class Customer
 {
     public $name;
@@ -44,6 +46,15 @@ class Customer
     public function getDiscount(): int
     {
         return 20;
+    }
+
+    public function askForDiscount(): void
+    {
+        echo 'Witam. Nazywam się ' .
+            $this->name .
+            ' ' .
+            $this->lastName .
+            '. Dostanę jakąś zniżkę?' . PHP_EOL;
     }
 }
 
