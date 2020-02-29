@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 require_once('Rectangle.php');
 
-class Square extends Rectangle
+class Square extends Shape
 {
     public function setHeight(int $height): Rectangle
     {
