@@ -2,23 +2,26 @@
 
 declare(strict_types=1);
 
-require_once('Rectangle.php');
+require_once('Shape.php');
 
 class Square extends Shape
 {
-    public function setHeight(int $height): Rectangle
+    private $side;
+
+    public function getSide(): int
     {
-        parent::setHeight($height);
-        parent::setWidth($height);
+        return $side;
+    }
+
+    public function setSide(int $size): Square
+    {
+        $this->side = $size;
 
         return $this;
     }
 
-    public function setWidth(int $width): Rectangle
+    public function getArea(): int
     {
-        parent::setWidth($width);
-        parent::setHeight($width);
-
-        return $this;
+        return $this->side ** 2;
     }
 }

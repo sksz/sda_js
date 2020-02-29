@@ -2,7 +2,9 @@
 
 declare(strict_types=1);
 
-class Rectangle
+require_once('Shape.php');
+
+class Rectangle extends Shape
 {
     private $height;
     private $width;
