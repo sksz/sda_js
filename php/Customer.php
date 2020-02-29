@@ -10,6 +10,8 @@ class Customer
 
     public static $type = 'customer';
 
+    public $status = 'basic';
+
     public static function getType(): string
     {
         return static::$type;

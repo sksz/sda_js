@@ -24,6 +24,23 @@ $piwo = new Mariany(new DateTime('2020-03-01 12:00:00'), 'Piwo', 666);
 
 var_dump($kielbasa, $bulka, $piwo);
 
+Mariany::getClassName();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

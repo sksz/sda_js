@@ -12,6 +12,12 @@ abstract class Offer
         $this->name = $name;
         $this->type = $type;
     }
+
+    public static function getClassName(): void
+    {
+        echo $this->name;
+        echo 'Jestem klasą ' . get_called_class() . '.' . PHP_EOL;
+    }
 }
 
 

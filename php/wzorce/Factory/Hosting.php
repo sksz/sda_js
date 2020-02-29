@@ -1,0 +1,13 @@
+<?php
+
+declare(strict_types=1);
+
+require_once 'AbstractProduct.php';
+
+class Hosting extends AbstractProduct
+{
+    public function order()
+    {
+
+    }
+}
