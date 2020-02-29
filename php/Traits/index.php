@@ -2,10 +2,17 @@
 
 declare(strict_types=1);
 
-require_once('Entry.php');
-require_once('Comment.php');
-require_once('Photo.php');
-require_once('Video.php');
+namespace Traits;
+
+require_once('Text/Entry.php');
+require_once('Text/Comment.php');
+require_once('Media/Photo.php');
+require_once('Media/Video.php');
+
+use \Traits\Media\Photo;
+use \Traits\Media\Video;
+use \Traits\Text\Comment;
+use \Traits\Text\Entry;
 
 $entry = new Entry();
 $comment = new Comment();
