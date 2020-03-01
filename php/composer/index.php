@@ -4,10 +4,7 @@ declare(strict_types=1);
 
 namespace Traits;
 
-require_once('Text/Entry.php');
-require_once('Text/Comment.php');
-require_once('Media/Photo.php');
-require_once('Media/Video.php');
+require 'vendor/autoload.php';
 
 use \Traits\Media\Photo;
 use \Traits\Media\Video;

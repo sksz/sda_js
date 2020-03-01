@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Traits\Text;
 
-require_once('AbstractText.php');
+use AbstractText;
 
 class Entry extends AbstractText
 {
