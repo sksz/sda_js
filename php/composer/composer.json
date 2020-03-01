@@ -1,0 +1,13 @@
+{
+    "name": "sda/composer",
+    "description": "Demo użycia composera na kursie PHP w SDA",
+    "type": "project",
+    "license": "SDA License",
+    "authors": [
+        {
+            "name": "Michał Szewczyk",
+            "email": "michal.szewczyk@home.net.pl"
+        }
+    ],
+    "require": {}
+}
