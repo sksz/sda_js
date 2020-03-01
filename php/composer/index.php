@@ -17,3 +17,5 @@ $photo = new Photo();
 $video = new Video();
 
 var_dump($entry, $comment, $photo, $video);
+
+$comment->logSomething();
