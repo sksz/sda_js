@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Traits\Media;
 
-use AbstractMedia;
+use Traits\Media\AbstractMedia;
 
 class Video extends AbstractMedia
 {

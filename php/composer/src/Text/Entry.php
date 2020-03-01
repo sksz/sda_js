@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Traits\Text;
 
-use AbstractText;
+use Traits\Text\AbstractText;
 
 class Entry extends AbstractText
 {

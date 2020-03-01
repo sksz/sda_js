@@ -9,5 +9,10 @@
             "email": "michal.szewczyk@home.net.pl"
         }
     ],
+    "autoload" : {
+        "psr-4": {
+            "Traits\\": "src/"
+        }
+    },
     "require": {}
 }
