@@ -12,4 +12,9 @@ while ($line = $file->read()) {
     echo $line;
 }
 
-// var_dump($file);
+$file = null;
+
+$file = new FileOperations('test.txt', 'a');
+
+$file->writeLine('jeszcze jeden tym razem dynamicznie');
+$file->writeLine('i następny');

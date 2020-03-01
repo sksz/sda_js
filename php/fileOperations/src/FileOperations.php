@@ -30,12 +30,17 @@ class FileOperations
         return $line ?: null;
     }
 
-    public function write(string $line)
+    public function write(string $line): int
     {
         return fwrite($this->fileHandle, $line);
     }
 
-    private function openFile(string $mode)
+    public function writeLine(string $line): int
+    {
+        return $this->write($line . PHP_EOL);
+    }
+
+    private function openFile(string $mode): void
     {
         if (!file_exists($this->fileName)) {
             throw new \Exception('Plik "' . $this->fileName . '" nie istnieje');
@@ -48,7 +53,7 @@ class FileOperations
         $this->fileHandle = fopen($this->fileName, $mode);
     }
 
-    private function closeFile()
+    private function closeFile(): void
     {
         fclose($this->fileHandle);
     }
