@@ -6,10 +6,10 @@ namespace Traits;
 
 require __DIR__ . '/vendor/autoload.php';
 
-use \Traits\Media\Photo;
-use \Traits\Media\Video;
-use \Traits\Text\Comment;
-use \Traits\Text\Entry;
+use Traits\Media\Photo;
+use Traits\Media\Video;
+use Traits\Text\Comment;
+use Traits\Text\Entry;
 
 $entry = new Entry();
 $comment = new Comment();
