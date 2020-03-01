@@ -1,0 +1,20 @@
+{
+    "name": "sda/file-operations",
+    "description": "Demo operacji I/O na kursie PHP w SDA",
+    "type": "project",
+    "license": "SDA License",
+    "authors": [
+        {
+            "name": "Michał Szewczyk",
+            "email": "michal.szewczyk@home.net.pl"
+        }
+    ],
+    "autoload" : {
+        "psr-4": {
+            "FileOperations\\": "src/"
+        }
+    },
+    "require": {
+        "monolog/monolog": "^2.0"
+    }
+}

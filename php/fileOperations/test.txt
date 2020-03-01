@@ -1,0 +1,4 @@
+test wiersza 1
+test wiersza 2
+jakiś następny wiersz
+i może jeszcze jeden
