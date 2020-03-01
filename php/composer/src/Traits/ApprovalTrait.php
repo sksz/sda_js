@@ -12,7 +12,12 @@ trait ApprovalTrait
     public function logSomething()
     {
         $logger = new Logger('Traits');
-        $logger->pushHandler(new StreamHandler('var/log/dev.log', Logger::DEBUG));
+        $logger->pushHandler(
+            new StreamHandler(
+                'var/log/dev.log',
+                Logger::DEBUG
+            )
+        );
 
         $logger->warning('Foo');
         $logger->error('Bar');

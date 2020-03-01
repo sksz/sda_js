@@ -15,6 +15,7 @@
         }
     },
     "require": {
-        "monolog/monolog": "^2.0"
+        "monolog/monolog": "^2.0",
+        "maknz/slack": "^1.7"
     }
 }
