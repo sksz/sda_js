@@ -1,6 +1,6 @@
 <?php
 
-class myIterator implements OuterIterator, Countable {
+class MyIterator implements OuterIterator, Countable {
     private $position = 0;
     private $array;
 
@@ -49,7 +49,7 @@ class myIterator implements OuterIterator, Countable {
     }
 }
 
-$it = new myIterator;
+$it = new MyIterator();
 
 $it->setArray(['Jan', 'Kowalski', 'Maria', 'Jopek']);
 
@@ -59,4 +59,6 @@ foreach($it as $key => $value) {
     var_dump($key, $value);
     echo "\n";
 }
+
+var_dump(class_implements(get_class($it)));
 ?>
