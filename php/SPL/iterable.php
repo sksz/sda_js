@@ -1,6 +1,6 @@
 <?php
 
-class myIterator implements OuterIterator {
+class myIterator implements OuterIterator, Countable {
     private $position = 0;
     private $array;
 
@@ -16,6 +16,11 @@ class myIterator implements OuterIterator {
     public function getInnerIterator()
     {
         return parent;
+    }
+
+    public function count()
+    {
+        return count($this->array);
     }
 
     public function rewind() {
@@ -47,6 +52,8 @@ class myIterator implements OuterIterator {
 $it = new myIterator;
 
 $it->setArray(['Jan', 'Kowalski', 'Maria', 'Jopek']);
+
+var_dump(count($it));
 
 foreach($it as $key => $value) {
     var_dump($key, $value);
