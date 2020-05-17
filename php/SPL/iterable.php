@@ -53,7 +53,7 @@ $it = new MyIterator();
 
 $it->setArray(['Jan', 'Kowalski', 'Maria', 'Jopek']);
 
-var_dump(count($it));
+var_dump($it);
 
 foreach($it as $key => $value) {
     var_dump($key, $value);
@@ -61,4 +61,7 @@ foreach($it as $key => $value) {
 }
 
 var_dump(class_implements(get_class($it)));
+
+var_dump(spl_object_hash($it));
+var_dump(spl_object_id($it));
 ?>
