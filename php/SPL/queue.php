@@ -27,3 +27,12 @@ $testQueue->next();
 $tmp3 = $testQueue->current();
 
 var_dump($tmp3);
+
+var_dump($testQueue->serialize());
+
+var_dump($testQueue->shift());
+
+var_dump($testQueue->shift());
+var_dump($testQueue->shift());
+var_dump($testQueue->shift());
+
