@@ -136,7 +136,7 @@ class Navigation extends React.Component {
             </div>
 
             {/* NAZWA APLIKACJI */}
-            <Typography variant="h6" color="inherit">
+            <Typography variant="h6" color="inherit" component="h1">
               STAR WARS
             </Typography>
 

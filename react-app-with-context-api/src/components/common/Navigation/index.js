@@ -7,7 +7,7 @@ import MenuIcon from "@material-ui/icons/Menu";
 import { withStyles, createStyles } from "@material-ui/styles";
 import { NavLink } from "react-router-dom";
 import { Menu, MenuItem } from "@material-ui/core";
-import SearchBar from './SearchBar';
+import SearchBar from "./SearchBar";
 
 const styles = createStyles({
   root: {
@@ -49,15 +49,15 @@ const styles = createStyles({
     textDecoration: "underline",
   },
   search: {
-    position: 'relative',
+    position: "relative",
     borderRadius: 0,
     backgroundColor: "#fff",
     marginRight: "10px",
     paddingLeft: "15px",
-    width: '100%',
+    width: "100%",
     "@media (min-width:600px)": {
       marginLeft: "15px",
-      width: 'auto',
+      width: "auto",
     },
   },
 });
@@ -147,7 +147,7 @@ class Navigation extends React.Component {
               </Menu>
             </div>
 
-            <Typography variant="h6" color="inherit">
+            <Typography variant="h6" color="inherit" component="h1">
               STAR WARS
             </Typography>
 

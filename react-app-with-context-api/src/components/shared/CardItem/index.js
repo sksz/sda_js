@@ -31,7 +31,7 @@ export default function SimpleCard({ name, type }) {
         <Typography className={classes.title} color="textSecondary" gutterBottom>
           {type}:
         </Typography>
-        <Typography variant="h5" component="h2">
+        <Typography variant="h5" component="h3">
           {name}
         </Typography>
       </CardContent>
