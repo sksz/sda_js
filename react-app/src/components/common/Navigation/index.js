@@ -8,7 +8,7 @@ import { withStyles, createStyles } from "@material-ui/styles";
 import { NavLink } from "react-router-dom";
 import { Menu, MenuItem } from "@material-ui/core";
 
-const styles = createStyles({
+const styles = createStyles({ // definicja styli css
   root: {
     flexGrow: 1,
   },
@@ -58,91 +58,93 @@ class Navigation extends React.Component {
     };
   }
 
-  handleClick = (event) => {
+  handleMobileMenuOpen = event => {
     const { currentTarget } = event;
-    this.setState((prevProps) => ({
-      ...prevProps,
+    this.setState(() => ({
       anchorEl: currentTarget,
     }));
   };
 
-  handleClose = () => {
-    this.setState((prevProps) => ({
-      ...prevProps,
+  handleMobileMenuClose = () => {
+    this.setState(() => ({
       anchorEl: null,
     }));
   };
 
   render() {
-    const { classes } = this.props;
+    const { classes } = this.props; // style
     const { anchorEl } = this.state;
 
     return (
       <div className={classes.root}>
         <AppBar position="static">
           <Toolbar variant="dense">
+
+            {/* NAWIGACJA WIDOCZNA NA MOBILCE */}
             <div className={classes.mobileNavWrapper}>
+              {/* IKONA HAMBURGERA */}
               <IconButton
                 edge="start"
                 className={classes.menuButton}
                 color="inherit"
-                aria-label="menu"
-                aria-controls="mobile-menu"
-                aria-haspopup="true"
-                onClick={this.handleClick}
+                onClick={this.handleMobileMenuOpen}
               >
                 <MenuIcon />
               </IconButton>
+
+              {/* NAWIGACJA POJAWIAJĄCA SIĘ PO NACISNIĘCIU PRZYCISKU HAMBURGERA */}
               <Menu
                 id="mobile-menu"
                 anchorEl={anchorEl}
                 keepMounted
                 open={Boolean(anchorEl)}
-                onClose={this.handleClose}
+                onClose={this.handleMobileMenuClose}
+                onClick={this.handleMobileMenuClose}
                 classes={{ paper: classes.mobileNav }}
               >
-                <MenuItem onClick={this.handleClose}>
-                  <NavLink
+                <MenuItem>
+                  <NavLink // Komponent z react-router-dom odpowiedzialny za załadowanie innego komponentu
                     to="/planets"
-                    aria-label="go to planets page"
                     activeClassName={classes.menuListItemAnchorActive}
                     className={classes.menuListDesktopItemAnchor}
                   >
                     <p>Planets</p>
                   </NavLink>
                 </MenuItem>
-                <MenuItem onClick={this.handleClose}>
-                  <NavLink
+
+                <MenuItem>
+                  <NavLink  // Komponent z react-router-dom odpowiedzialny za załadowanie innego komponentu
                     to="/people"
-                    aria-label="go to planets page"
                     activeClassName={classes.menuListItemAnchorActive}
                     className={classes.menuListDesktopItemAnchor}
                   >
                     <p>People</p>
                   </NavLink>
                 </MenuItem>
-                <MenuItem onClick={this.handleClose}>
+
+                <MenuItem>
                   <NavLink
-                    to="/vehicles"
-                    aria-label="go to planets page"
+                    to="/vehicles"  // Komponent z react-router-dom odpowiedzialny za załadowanie innego komponentu
                     activeClassName={classes.menuListItemAnchorActive}
                     className={classes.menuListDesktopItemAnchor}
                   >
                     <p>Vehicles</p>
                   </NavLink>
                 </MenuItem>
+
               </Menu>
             </div>
 
+            {/* NAZWA APLIKACJI */}
             <Typography variant="h6" color="inherit">
               STAR WARS
             </Typography>
 
+            {/* NAWIGACJA WIDOCZNA NA DESKTOP */}
             <ul className={classes.menuListDesktop}>
               <li className={classes.menuListDesktopItem}>
-                <NavLink
+                <NavLink // Komponent z react-router-dom odpowiedzialny za załadowanie innego komponentu
                   to="/planets"
-                  aria-label="go to planets page"
                   activeClassName={classes.menuListItemAnchorActive}
                   className={classes.menuListDesktopItemAnchor}
                 >
@@ -150,9 +152,8 @@ class Navigation extends React.Component {
                 </NavLink>
               </li>
               <li className={classes.menuListDesktopItem}>
-                <NavLink
+                <NavLink // Komponent z react-router-dom odpowiedzialny za załadowanie innego komponentu
                   to="/people"
-                  aria-label="go to planets page"
                   activeClassName={classes.menuListItemAnchorActive}
                   className={classes.menuListDesktopItemAnchor}
                 >
@@ -160,9 +161,8 @@ class Navigation extends React.Component {
                 </NavLink>
               </li>
               <li className={classes.menuListDesktopItem}>
-                <NavLink
+                <NavLink // Komponent z react-router-dom odpowiedzialny za załadowanie innego komponentu
                   to="/vehicles"
-                  aria-label="go to planets page"
                   activeClassName={classes.menuListItemAnchorActive}
                   className={classes.menuListDesktopItemAnchor}
                 >
@@ -177,4 +177,4 @@ class Navigation extends React.Component {
   }
 }
 
-export default withStyles(styles)(Navigation);
+export default withStyles(styles)(Navigation); // dodanie styli css do this.props naszego komponentu
