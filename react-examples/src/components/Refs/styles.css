@@ -1,0 +1,8 @@
+.example {
+  height: 100px;
+}
+
+.example--dark {
+  background-color: black;
+  color: white;
+}

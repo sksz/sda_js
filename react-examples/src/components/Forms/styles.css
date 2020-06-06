@@ -1,0 +1,7 @@
+.form__input-wrapper {
+  margin-bottom: 15px;
+}
+.form__input-error {
+  color: red;
+  margin: 0;
+}
