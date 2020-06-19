@@ -6,7 +6,7 @@ class JsxExample extends React.Component {
     // const pElement = <p>{this.props.props1}</p>;
 
     // return (
-    //   <div> 
+    //   <div>
     //     {pElement}
     //   </div>
     // );
@@ -23,18 +23,6 @@ class JsxExample extends React.Component {
 
     // Prawidłowo:
     // return (
-    //   <>
-    //     <div> 
-    //       JSX
-    //     </div>
-    //     <div> 
-    //       JSX
-    //     </div>
-    //   </>
-    // );
-
-    // Prawidłowo:
-    // return (
     //   <div>
     //     <div> 
     //       JSX
@@ -46,6 +34,19 @@ class JsxExample extends React.Component {
     // );
 
     // Prawidłowo:
+    // return (
+    //   <>
+    //     <div> 
+    //       JSX
+    //     </div>
+    //     <div> 
+    //       JSX
+    //     </div>
+    //   </>
+    // );
+
+
+    // Prawidłowo:
     // return 'tekst';
 
     // Prawidłowo:
@@ -53,6 +54,8 @@ class JsxExample extends React.Component {
 
     // Źle:
     // return undefined;
+    // return {};
+    // return [];
 
     const { props } = this;
     const { props1, props2 } = props;

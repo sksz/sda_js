@@ -95,12 +95,12 @@ class Navigation extends React.Component {
               {/* NAWIGACJA POJAWIAJĄCA SIĘ PO NACISNIĘCIU PRZYCISKU HAMBURGERA */}
               <Menu
                 id="mobile-menu"
-                anchorEl={anchorEl}
+                anchorEl={anchorEl} // elementem względem którego menu jest pozycjonowane - w tym wypadku IconButton
                 keepMounted
-                open={Boolean(anchorEl)}
+                open={Boolean(anchorEl)} // określenie czy nawigacja jest otwarta lub zamknięta
                 onClose={this.handleMobileMenuClose}
                 onClick={this.handleMobileMenuClose}
-                classes={{ paper: classes.mobileNav }}
+                classes={{ paper: classes.mobileNav }} // umozliwia nadpisywanie klas pojedyńczych elementów HTML danego komponentu material-ui
               >
                 <MenuItem>
                   <NavLink // Komponent z react-router-dom odpowiedzialny za załadowanie innego komponentu

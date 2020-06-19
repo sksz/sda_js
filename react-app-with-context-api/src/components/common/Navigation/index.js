@@ -73,15 +73,13 @@ class Navigation extends React.Component {
 
   handleClick = (event) => {
     const { currentTarget } = event;
-    this.setState((prevProps) => ({
-      ...prevProps,
+    this.setState(() => ({
       anchorEl: currentTarget,
     }));
   };
 
   handleClose = () => {
-    this.setState((prevProps) => ({
-      ...prevProps,
+    this.setState(() => ({
       anchorEl: null,
     }));
   };

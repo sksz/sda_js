@@ -6,13 +6,14 @@ class StateExample extends React.Component {
     super(props);
 
     this.state = { // wstępna definicja state w konstruktorze
-      counter: 0,
+      counter: 0, // domyslna wartość początkowa
     };
   }
 
   increaseCounter = () => { // odpowiednik this.increaseCounter = this.increaseCounter.bind(this) w konstruktorze klasy
     // funkcja zawsze musi zwrócić >nowy< obiekt
-    this.setState(prevProps => ({ counter: prevProps.counter + 1 })); // uzywamy prevProps do wyciągania poprzednich wartości
+    // this.state.counter++; // nadpisywanie w bezpośredni sposób jest nie dozwolone
+    this.setState(prevState => ({ counter: prevState.counter + 1 })); // uzywamy prevProps do wyciągania poprzednich wartości
   };
 
   render() {

@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 
 class ComponentsTypesExamples extends Component { 
-  /* !!!!!! metoda render jest wywoływna za kazdym razem gdy: 
+  /* !!!!!! metoda render jest wywoływna za kazdym razem gdy:
+    * komponent jest montowany
     * stan komponentu (state) zostanie zaktualizowany
     * rodzic komponentu wywoła własną metodę render()
   */
@@ -25,4 +26,4 @@ class ClassComponent extends React.Component {
   }
 }
 
-const FunctionalComponent = (props) => <div>I am a functional component, Hello {props.userName}!</div>;
+const FunctionalComponent = ({ userName }) => <div>I am a functional component, Hello {userName}!</div>;

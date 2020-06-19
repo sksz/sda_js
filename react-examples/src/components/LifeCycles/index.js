@@ -2,9 +2,12 @@ import React from "react";
 import Button from "./button";
 
 class LifeCycleExample extends React.Component {
-  static getDerivedStateFromProps(newProps, newState) { // słuzy do zwracania nowego state na podstawie zaktualizowanych props-ów z rodzica !! jako funckja statyczna nie ma dostępu do 'this' !!
+  // słuzy do zwracania nowego state na podstawie zaktualizowanych props-ów z rodzica !!
+  // jako funckja statyczna nie ma dostępu do 'this' !!
+  // uruchamia się gdy aktualizuje się rodzic lub zmienia się stan komponentu
+  static getDerivedStateFromProps(newProps, newState) {
     console.log("getDerivedStateFromProps");
-    return { ...newState }; // zawsze musi zwrócić >nowy< state
+    return { ...newState }; // zawsze musi zwrócić >nowy< stan
   }
 
   constructor(props) {
@@ -24,7 +27,7 @@ class LifeCycleExample extends React.Component {
     console.log("componentDidUpdate", prevProps, prevState);
   }
 
-  shouldComponentUpdate(nextProps, nextState) { // słuzy do przerwania renderowania jezeli propsy się nie zmieniły
+  shouldComponentUpdate(nextProps, nextState) { // słuzy do zadecydowania czy komponent po zaktualizowaniu ma wywołać render()
     console.log("shouldComponentUpdate", nextProps, nextState);
     return true; // zawsze musi zwracać true lub false!
   }

@@ -10,7 +10,7 @@ class PureComponentExample extends React.Component {
       counter: 0,
     };
 
-    this.array = ['test string'];
+    // this.array = ['test string'];
   }
 
   increaseCounter = () => {
@@ -19,7 +19,7 @@ class PureComponentExample extends React.Component {
 
   render() {
     console.log("parent component render");
-    const array = ['test string'];
+    // const array = ['test string'];
 
     return (
       <>

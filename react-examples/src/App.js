@@ -16,13 +16,13 @@ class App extends Component {
   render () {
     return (
       <div className="App">
-        <ExportImportExample />
+        {/* <ExportImportExample /> */}
         {/* <ComponentsTypesExample /> */}
         {/* <JsxExample props1='test' props2={['test1', 'test2', 'test3']} /> */}
         {/* <EventsExample /> */}
         {/* <RefsExample /> */}
         {/* <StateExample /> */}
-        {/* <FormsExample /> */}
+        <FormsExample />
         {/* <LifeCyclesExample /> */}
         {/* <PureComponentExample /> */}
         {/* <MemoComponentExample /> */}

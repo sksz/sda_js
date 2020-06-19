@@ -7,7 +7,7 @@ class ControlledForm extends React.Component {
     super(props);
 
     this.state = {
-      [FORM_INPUTS.NAME]: {
+      [FORM_INPUTS.NAME]: { // wszystkie meta dane formularza
         value: "",
         type: "text",
         name: FORM_INPUTS.NAME,
@@ -40,10 +40,10 @@ class ControlledForm extends React.Component {
     console.log(name, value, required);
 
     this.setState(prevState => ({
-      ...prevState,
-      [name]: {
-        ...prevState[name],
-        value,
+      ...prevState, // kopiujemy cały poprzedni stan
+      [name]: { // nadpisujemy wybrane pole
+        ...prevState[name], // kopiujemy wszystkie wartości poprzedniego pola
+        value, // nadpisujemy wybrane wartości
         errorMessage
       },
     }));

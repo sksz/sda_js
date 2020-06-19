@@ -7,6 +7,7 @@ export const testObj = {};
 export const testArray = [];
 
 export default {
+  myBestFriend: 'Reksio',
   testString,
   testObj,
   testArray,
