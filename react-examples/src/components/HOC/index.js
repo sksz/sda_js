@@ -1,9 +1,9 @@
 import React from "react";
 import HOCExample from "./HOC-Component";
 
-const FormsExample = (props) => (
+const FormsExample = ({ propsFromHOC }) => (
   <>
-    props from HOC: {props.propsFromHOC}
+    props from HOC: {propsFromHOC}
   </>
 );
 

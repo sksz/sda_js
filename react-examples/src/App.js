@@ -9,6 +9,7 @@ import RefsExample from './components/Refs';
 import FormsExample from './components/Forms';
 import HOCExample from './components/HOC';
 import RenderPropsExample from './components/RenderProps';
+import HomeWork from './components/HomeWork';
 import PureComponentExample from './components/PureComponent';
 import MemoComponentExample from './components/Memo';
 
@@ -22,12 +23,13 @@ class App extends Component {
         {/* <EventsExample /> */}
         {/* <RefsExample /> */}
         {/* <StateExample /> */}
-        <FormsExample />
+        {/* <HomeWork /> */}
+        {/* <FormsExample /> */}
         {/* <LifeCyclesExample /> */}
         {/* <PureComponentExample /> */}
         {/* <MemoComponentExample /> */}
         {/* <HOCExample /> */}
-        {/* <RenderPropsExample /> */}
+        <RenderPropsExample />
       </div>
     );
   }

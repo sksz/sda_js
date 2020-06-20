@@ -1,0 +1,5 @@
+.shop-cart {
+  display: grid;
+  grid-template-columns: 49% 49%;
+  grid-column-gap: 2%;
+}
