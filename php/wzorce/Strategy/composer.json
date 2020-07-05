@@ -1,0 +1,23 @@
+{
+    "name": "sksz/strategy",
+    "type": "project",
+    "require-dev": {
+        "phpunit/phpunit": "^9.2"
+    },
+    "autoload" : {
+        "psr-4": {
+            "Strategy\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Strategy\\Tests\\": "tests/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Michał Szewczyk",
+            "email": "michal.szewczyk@home.net.pl"
+        }
+    ]
+}
