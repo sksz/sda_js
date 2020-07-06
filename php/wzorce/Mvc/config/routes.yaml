@@ -1,0 +1,6 @@
+index:
+   path: /
+   controller: Mvc\Controller\DefaultController::index
+o-nas:
+   path: /o-nas
+   controller: Mvc\Controller\CompanyController::aboutUs
